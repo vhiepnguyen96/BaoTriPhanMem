@@ -661,9 +661,9 @@ public class CanBo_View extends javax.swing.JPanel implements ActionListener {
                         thatBai += "Xoá cán bộ " + t.getMaCB() + " -- " + t.getTen() + " thất bại!\n";
                     });
                     Alert.showMessageDialog(this, thatBai);
+                    Alert.showWarning(this, "Cán bộ đang có trong danh sách tham gia của 1 sự kiện! Vui lòng thử lại sau!");
                 }
             }
-            Alert.showSuccess(this, "Đã cập nhật thay đổi", 2000);
             canBoList.getTable().getTableModel().fireTableDataChanged();
             refresh();
             btn_Luu.setEnabled(false);

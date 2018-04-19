@@ -511,7 +511,6 @@ public class SinhVien_View extends javax.swing.JPanel implements ActionListener 
             int select = Alert.showQuestionDialog(this, "Lưu lại thay đổi?", "Xác nhận lưu");
             if (select == Alert.OK) {
                 luu_SinhVien();
-                Alert.showMessageDialog(this, "Đã cập nhật thay đổi!", "Thông báo");
                 refresh();
                 btn_Luu.setEnabled(false);
             }
@@ -657,6 +656,7 @@ public class SinhVien_View extends javax.swing.JPanel implements ActionListener 
                     thatBai += "Xoá sinh viên " + t.getMaSV() + " -- " + t.getTen() + " thất bại!\n";
                 });
                 Alert.showMessageDialog(this, thatBai, "Thông báo");
+                Alert.showWarning(this, "Sinh viên đang có trong danh sách tham gia của 1 sự kiện! Vui lòng thử lại sau!");
                 SinhVien_Controller.clearDel();
             }
             listDel_SinhVien.clear();

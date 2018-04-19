@@ -30,6 +30,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import other.custom.Alert;
 import other.custom.ExtensionFileFilter;
 
 /**
@@ -504,7 +505,7 @@ public class CanBo_Controller {
                 + " `ten` = '" + canBo_Model.getTen() + "',"
                 + " `email` = '" + canBo_Model.getEmail() + "',"
                 + " `maBoMon` = '" + maBoMon + "',"
-                + " `maKhoa` = '" + maKhoa + "'"
+                + " `maKhoa` = '" + maKhoa + "',"
                 + " `maRFID` = '" + canBo_Model.getMaRFID() + "'"
                 + " WHERE `maCB` = '" + macb + "'";
         errorMessage = "";
@@ -535,6 +536,9 @@ public class CanBo_Controller {
             if (!check) {
                 CanBo_Model model = cadre_Model1;
                 delete_Failed.add(model);
+            }
+            else {
+                Alert.showSuccess(null, "Đã cập nhật thay đổi", 2000);
             }
         });
     }

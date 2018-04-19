@@ -511,6 +511,9 @@ public class SinhVien_Controller {
             if (!b) {
                 add_Failed.add(sinhVien_Model1);
             }
+            else {
+                Alert.showMessageDialog("Đã cập nhật thay đổi!", "Thông báo");
+            }
         });
     }
 
@@ -542,6 +545,9 @@ public class SinhVien_Controller {
             if (!b) {
                 update_Failed.add(sinhVien_Model1);
             }
+            else {
+                Alert.showMessageDialog("Đã cập nhật thay đổi!", "Thông báo");
+            }
         });
     }
 
@@ -556,6 +562,9 @@ public class SinhVien_Controller {
             boolean b = delete_SinhVien(sinhVien_Model1);
             if (!b) {
                 delete_Failed.add(sinhVien_Model1);
+            }
+            else {
+                 Alert.showMessageDialog("Đã cập nhật thay đổi!", "Thông báo");
             }
         });
     }

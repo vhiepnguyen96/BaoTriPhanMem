@@ -238,7 +238,7 @@ public class App_Controller {
 
     public ArrayList<String> getNganh() {
         ArrayList<String> list = new ArrayList<>();
-        String sql = "SELECT `maNganh`  FROM `nganh` ";
+        String sql = "SELECT `nganh`  FROM `nganh` ";
         try {
             rs = handler.execQuery(sql);
             while (rs.next()) {
@@ -275,7 +275,7 @@ public class App_Controller {
 
     public ArrayList<String> getLop() {
         ArrayList<String> list = new ArrayList<>();
-        String sql = "SELECT `maLop`  FROM `lop` ";
+        String sql = "SELECT `lop`  FROM `lop` ";
         try {
             rs = handler.execQuery(sql);
             while (rs.next()) {
@@ -312,7 +312,7 @@ public class App_Controller {
 
     public ArrayList<String> getBoMon() {
         ArrayList<String> list = new ArrayList<>();
-        String sql = "SELECT `maBoMon`  FROM `bomon` ";
+        String sql = "SELECT `bomon`  FROM `bomon` ";
         try {
             rs = handler.execQuery(sql);
             while (rs.next()) {
@@ -349,7 +349,7 @@ public class App_Controller {
 
     public ArrayList<String> getKhoa() {
         ArrayList<String> list = new ArrayList<>();
-        String sql = "SELECT `maKhoa`  FROM `khoa` ";
+        String sql = "SELECT `khoa`  FROM `khoa` ";
         try {
             rs = handler.execQuery(sql);
             while (rs.next()) {

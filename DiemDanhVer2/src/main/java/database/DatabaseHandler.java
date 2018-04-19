@@ -22,7 +22,7 @@ public class DatabaseHandler {
     private static Connection conn = null;
     private static Statement stm = null;
     private static final String hostName = "localhost";
-    private static final String dbName = "diemdanh";
+    private static final String dbName = "DiemDanh";
     private static final String userName = "root";
     private static final String password = "";
 

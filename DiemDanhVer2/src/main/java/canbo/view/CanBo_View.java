@@ -637,6 +637,7 @@ public class CanBo_View extends javax.swing.JPanel implements ActionListener {
                 CanBo_List.clearListAdd();
             }
             ArrayList<CanBo_Model> listEdit_temp = CanBo_List.getListEdit_temp();
+            System.out.println("Cập nhật: "+listEdit_temp.size());
             if (listEdit_temp.size() > 0) {
                 CanBo_List.getController().update_CanBo(listEdit_temp);
                 if (!CanBo_Controller.getUpdate_Failed().isEmpty()) {

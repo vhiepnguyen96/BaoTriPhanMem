@@ -36,10 +36,10 @@ public class App_Controller {
     public App_Controller() {
         boolean appData = createTable_AppData();
         boolean log = createTable_Log();
-        boolean nganh = createTable_Nganh();
-        boolean lop = createTable_Lop();
         boolean khoa = createTable_Khoa();
         boolean boMon = createTable_BoMon();
+        boolean nganh = createTable_Nganh();
+        boolean lop = createTable_Lop();
         boolean canBo = create_CanBo();
         boolean sinhVien = create_SinhVien();
         boolean suKien = createTable_SuKien();
@@ -75,16 +75,18 @@ public class App_Controller {
     private boolean createTable_Nganh() {
         String query = "CREATE TABLE NGANH( "
                 + "    maNganh VARCHAR(15) PRIMARY KEY, "
-                + "    Nganh VARCHAR(50) UNIQUE NOT NULL "
-                + ");";
+                + "    Nganh VARCHAR(50) UNIQUE NOT NULL,"
+                + "    maKhoa VARCHAR(15) NOT NULL,"
+                + "    CONSTRAINT fk_maKhoa_Nganh FOREIGN KEY(maKhoa) REFERENCES KHOA(maKhoa) ON UPDATE CASCADE);";
         return handler.isExistTable(table_Nganh, query);
     }
 
     private boolean createTable_Lop() {
         String query = "CREATE TABLE LOP( "
                 + "    maLop VARCHAR(15) PRIMARY KEY, "
-                + "    Lop VARCHAR(50) UNIQUE NOT NULL "
-                + ");";
+                + "    Lop VARCHAR(50) UNIQUE NOT NULL, "
+                + "    maNganh VARCHAR(15) NOT NULL,"
+                + "    CONSTRAINT fk_maNganh_Lop FOREIGN KEY(maNganh) REFERENCES NGANH(maNganh) ON UPDATE CASCADE);";
         return handler.isExistTable(table_Lop, query);
     }
 
@@ -99,8 +101,9 @@ public class App_Controller {
     private boolean createTable_BoMon() {
         String query = "CREATE TABLE BOMON( "
                 + "    maBoMon VARCHAR(15) PRIMARY KEY, "
-                + "    BoMon VARCHAR(50) UNIQUE NOT NULL "
-                + ");";
+                + "    BoMon VARCHAR(50) UNIQUE NOT NULL, "
+                + "    maKhoa VARCHAR(15) NOT NULL,"
+                + "    CONSTRAINT fk_maKhoa_BM FOREIGN KEY(maKhoa) REFERENCES KHOA(maKhoa) ON UPDATE CASCADE);";
         return handler.isExistTable(table_BoMon, query);
     }
 

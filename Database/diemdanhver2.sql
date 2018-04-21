@@ -1,6 +1,7 @@
-CREATE TABLE NGANH(
+﻿CREATE TABLE NGANH(
     maNganh VARCHAR(15) PRIMARY KEY,
-    tenNganh VARCHAR(50) UNIQUE NOT NULL
+    tenNganh VARCHAR(50) UNIQUE NOT NULL,
+    CONSTRAINT fk_maKhoa_CB FOREIGN KEY(maKhoa) REFERENCES KHOA(maKhoa)
 );
 CREATE TABLE KHOA(
     maKhoa VARCHAR(15) PRIMARY KEY,
@@ -8,24 +9,25 @@ CREATE TABLE KHOA(
 );
 CREATE TABLE LOP(
     maLop VARCHAR(15) PRIMARY KEY,
-    tenLop VARCHAR(50) UNIQUE NOT NULL
+    tenLop VARCHAR(50) UNIQUE NOT NULL,
+    CONSTRAINT fk_maNganh_CB FOREIGN KEY(maNganh) REFERENCES KHOA(maNganh)
 );
 CREATE TABLE BOMON(
     maBoMon VARCHAR(15) PRIMARY KEY,
-    tenBoMon VARCHAR(50) UNIQUE NOT NULL
+    tenBoMon VARCHAR(50) UNIQUE NOT NULL,
+    CONSTRAINT fk_maKhoa_CB FOREIGN KEY(maKhoa) REFERENCES KHOA(maKhoa)
 );
 
-INSERT into NGANH value('52140202','Giáo dục Tiểu học');
-INSERT into NGANH value('52140204','Giáo dục Công dân');
-INSERT into NGANH value('52140206','Giáo dục Thể chất');
-INSERT into NGANH value('52520214','Kỹ thuật máy tính');
-INSERT into NGANH value('52480101','Khoa học máy tính');
-INSERT into NGANH value('52480102','Truyền thông và mạng máy tính');
-INSERT into NGANH value('52480103','Kỹ thuật phần mêm');
-INSERT into NGANH value('52480104','Hệ thống thông tin');
-INSERT into NGANH value('52480201','Công nghệ thông tin');
-INSERT into NGANH value('52510401','Công nghệ kỹ thuật hóa học');
-INSERT into NGANH value('52210601','Quản lý công nghiệp');
+INSERT into NGANH value('52140202','Giáo dục Tiểu học','SP');
+INSERT into NGANH value('52140204','Giáo dục Công dân','SP');
+INSERT into NGANH value('52140206','Giáo dục Thể chất','TC');
+INSERT into NGANH value('52520214','Kỹ thuật máy tính','DI');
+INSERT into NGANH value('52480101','Khoa học máy tính','DI');
+INSERT into NGANH value('52480102','Truyền thông và mạng máy tính','DI');
+INSERT into NGANH value('52480103','Kỹ thuật phần mềm','DI');
+INSERT into NGANH value('52480104','Hệ thống thông tin','DI');
+INSERT into NGANH value('52480201','Công nghệ thông tin','DI');
+INSERT into NGANH value('52510401','Công nghệ kỹ thuật hóa học','CN');
 
 INSERT into KHOA value('DI','Khoa Công nghệ thông tin và truyền thông');
 INSERT into KHOA value('CN','Khoa Công nghệ');
@@ -36,32 +38,32 @@ INSERT into KHOA value('NN','Khoa Nông nghiệp');
 INSERT into KHOA value('HA','Khoa Phát triển nông thôn');
 INSERT into KHOA value('DB','Khoa Dự bị dân tọc');
 INSERT into KHOA value('MT','Khoa Chính trị');
-INSERT into KHOA value('MTN','Khoa Môi trường');
+INSERT into KHOA value('TC','Khoa Thể chất');
 INSERT into KHOA value('XH','Khoa Khoa học Xã hội NV');
 
 
-INSERT into LOP value('DA1766A2','Phát triển nông thôn A2 K43');
-INSERT into LOP value('DI17Y1A2','Tin học Ứng dụng A2 K43');
-INSERT into LOP value('DI1796A1','Kỹ thuật phần mềm A1 K43');
-INSERT into LOP value('DI17Y9A2','Truyền thông và mạng máy tính A2 K43');
-INSERT into LOP value('FL17X1A1','Sư phạm Tiếng Anh A1 K43');
-INSERT into LOP value('DI1496A2','Kỹ thuật phần mềm A2 K40');
-INSERT into LOP value('HG1713A1','Nuôi trồng thủy sản A1 K43');
-INSERT into LOP value('HG1722A1','Quản trị kinh doanh A1 K43');
-INSERT into LOP value('DI14V7A3','Công nghệ thông tin A3 K40');
-INSERT into LOP value('DI1596A1','Kỹ thuật phần mềm A1 K41');
+INSERT into LOP value('KH17Y1A2','Tin học Ứng dụng A2 K43','BM.THUD');
+INSERT into LOP value('DI1796A1','Kỹ thuật phần mềm A1 K43','BM.CNPM');
+INSERT into LOP value('DI17Y9A2','Truyền thông và mạng máy tính A2 K43','BM.MMT&TT');
+INSERT into LOP value('FL17X1A1','Sư phạm Tiếng Anh A1 K43','BM.NN');
+INSERT into LOP value('DI1496A2','Kỹ thuật phần mềm A2 K40','BM.CNPM');
+INSERT into LOP value('HG1713A1','Nuôi trồng thủy sản A1 K43','BM.NTTS');
+INSERT into LOP value('HG1722A1','Quản trị kinh doanh A1 K43','BM.QTKD');
+INSERT into LOP value('DI14V7A3','Công nghệ thông tin A3 K40','BM.CNNT');
+INSERT into LOP value('DI1596A1','Kỹ thuật phần mềm A1 K41','BM.CNPM');
 
 
-INSERT into BOMON value('BM.CNPM','Bộ môn Công nghệ phần mềm');
-INSERT into BOMON value('BM.GDTC','Bộ môn Giáo dục thể chất');
-INSERT into BOMON value('BM.HTTT','Bộ môn Hệ thống thông tin');
-INSERT into BOMON value('BM.KHMT','Bộ môn Khoa học máy tính');
-INSERT into BOMON value('BM.MMT&TT','Bộ môn Truyền thông và mạng máy tính');
-INSERT into BOMON value('BM.CK','Bộ môn Cơ khí');
-INSERT into BOMON value('BM.DDT','Bộ môn Điện điện tử');
-INSERT into BOMON value('BM.CNTT','Bộ môn Công nghệ thông tin');
-INSERT into BOMON value('BM.THUD','Bộ môn Tin học ứng dụng');
-
+INSERT into BOMON value('BM.CNPM','Bộ môn Công nghệ phần mềm','DI');
+INSERT into BOMON value('BM.GDTC','Bộ môn Giáo dục thể chất','TC');
+INSERT into BOMON value('BM.HTTT','Bộ môn Hệ thống thông tin','DI');
+INSERT into BOMON value('BM.QTKD','Bộ môn Quản trị kinh doanh','MT');
+INSERT into BOMON value('BM.MMT&TT','Bộ môn Truyền thông và mạng máy tính','DI');
+INSERT into BOMON value('BM.CK','Bộ môn Cơ khí','CN');
+INSERT into BOMON value('BM.DDT','Bộ môn Điện điện tử','CN');
+INSERT into BOMON value('BM.CNTT','Bộ môn Công nghệ thông tin','DI');
+INSERT into BOMON value('BM.THUD','Bộ môn Tin học ứng dụng','KH');
+INSERT into BOMON value('BM.NTTS','Bộ môn Nuôi trồng thủy sản','TS');
+INSERT into BOMON value('BM.NN','Bộ môn Ngoại ngữ','SP');
 
 
 CREATE TABLE canbo(
